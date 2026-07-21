@@ -1,0 +1,10 @@
+footer { background: #1e0f0a; color: #ccc; }
+h5 { color: #f4a261; font-family: 'Playfair Display', serif; font-size: 1.4rem; }
+.footer-heading { color: #fff; font-weight: 600; margin-bottom: 12px; }
+.footer-tagline { color: #cccccc; }
+ul li { margin-bottom: 8px; }
+ul a, .social-links a { color: #aaa; text-decoration: none; transition: color 0.3s; }
+ul a:hover, .social-links a:hover { color: #f4a261; }
+.social-links a { font-size: 1.3rem; margin-right: 14px; }
+.footer-bottom { border-top: 1px solid #3a1f18; padding: 16px 0; text-align: center; color: #666; font-size: 0.85rem; }
+.footer-bottom a { color: #f4a261; text-decoration: none; }

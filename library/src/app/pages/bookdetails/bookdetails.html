@@ -1,0 +1,19 @@
+<div class="container text-center" style="margin-top: 56px;" *ngIf="book; else loadingBlock">
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <img *ngIf="book.covers?.length"
+           [src]="'https://covers.openlibrary.org/b/id/' + book.covers[0] + '-L.jpg'"
+           class="card-img-top" [alt]="book.title">
+    </div>
+    <div class="col-md-6 text-start">
+      <h1 class="detail-title">{{ book.title }}</h1>
+      <p>{{ book.description?.value || book.description || 'No description available.' }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingBlock>
+  <div class="text-center" style="margin-top: 80px;">
+    <p>Loading book details...</p>
+  </div>
+</ng-template>

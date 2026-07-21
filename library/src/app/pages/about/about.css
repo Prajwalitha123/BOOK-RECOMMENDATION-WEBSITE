@@ -1,0 +1,6 @@
+.page-header { background: linear-gradient(135deg, #2c1810, #4a2c2a); color: white; padding: 70px 0; text-align: center; }
+.page-header h1 { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2.5rem; }
+.page-header p { color: #d4b896; }
+.stat-card { background: #fdf6f0; border-radius: 16px; padding: 24px; }
+.stat-card h3 { color: #f4a261; font-weight: 800; font-size: 2rem; margin: 0; }
+.stat-card p { color: #7a6a5a; margin: 0; }

@@ -1,0 +1,79 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <app-carousel class="hero-carousel-bg"></app-carousel>
+
+  <div class="hero-overlay"></div>
+
+  <div class="container text-center hero-content">
+    <h1 class="hero-title">Coffee & Chapters</h1>
+    <p class="hero-sub">Explore thousands of books across every genre — powered by Open Library</p>
+
+    <div class="search-wrapper mx-auto mt-4">
+      <div class="input-group input-group-lg">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="bi bi-search text-muted"></i>
+        </span>
+        <input
+          type="text"
+          class="form-control border-start-0 ps-0"
+          placeholder="Search books, authors, genres..."
+          [(ngModel)]="searchQuery"
+          (keyup.enter)="onSearch()">
+        <button class="btn btn-search px-4" (click)="onSearch()">Search</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Genres -->
+<section class="genres-section">
+  <div class="container">
+    <h2 class="section-title text-center">Browse by Genre</h2>
+    <div class="row g-3 justify-content-center">
+      @for (genre of genres; track genre.name) {
+        <div class="col-6 col-md-3">
+          <a routerLink="/books" class="text-decoration-none">
+            <div class="genre-card text-center" [style.--accent]="genre.color">
+              <i class="bi" [class]="genre.icon"></i>
+              <p class="mb-0 fw-semibold mt-2">{{ genre.name }}</p>
+            </div>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Trending Books -->
+<section class="trending-section">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="section-title mb-0">Trending Books</h2>
+      <a routerLink="/books" class="view-all">View All <i class="bi bi-arrow-right"></i></a>
+    </div>
+
+    @if (loading) {
+      <div class="text-center py-5">
+        <div class="spinner-border text-warning" role="status"></div>
+        <p class="mt-3 text-muted">Loading books...</p>
+      </div>
+    } @else {
+      <div class="row g-4 row-cols-2 row-cols-lg-4">
+        @for (book of trendingBooks; track book.key) {
+          <div class="col">
+            <app-book-card [book]="book"></app-book-card>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Promo Banner -->
+<section class="promo-section">
+  <div class="container text-center">
+    <h2>📚 Over 20 Million Books Available</h2>
+    <p>All powered by the Open Library — free, open, and always growing</p>
+    <a routerLink="/books" class="btn btn-light px-5 py-2 fw-semibold mt-2">Start Exploring</a>
+  </div>
+</section>

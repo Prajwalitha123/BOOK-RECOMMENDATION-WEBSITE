@@ -1,0 +1,22 @@
+<div class="card p-2 book-card" style="width: 18rem; cursor: pointer;"
+     [routerLink]="['/book', book.key.split('/').pop()]">
+  <div class="card-img-wrapper">
+    <img [src]="book.cover_i ? 'https://covers.openlibrary.org/b/id/' + book.cover_i + '-M.jpg' : 'https://placehold.co/200x250?text=No+Cover'"
+         (error)="$any($event.target).src='https://placehold.co/200x250?text=No+Cover'"
+         class="card-img-top book-img"
+         [alt]="book.title"
+         style="max-height: 200px; object-fit: contain;">
+    <div class="card-overlay">
+      <span class="badge-new">View</span>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ book.title }}</h5>
+    <p class="card-text text-muted">
+      {{ book.author_name?.length ? book.author_name[0] : 'Unknown Author' }}
+    </p>
+    <p class="text-muted small">{{ book.first_publish_year }} · {{ book.edition_count }} editions</p>
+    <button class="btn btn-dark btn-sm px-3">Add to Favourites❤️</button>
+  </div>
+</div>
